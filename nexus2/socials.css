@@ -1,0 +1,89 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background: #0a0a0a;
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: linear-gradient(135deg, #ff00ff, #00d4ff);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+    font-size: 28px;
+    color: #180218;
+}
+
+.post-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+input {
+    flex: 1;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+}
+
+button {
+    padding: 12px 20px;
+    background: linear-gradient(90deg, #ff00ff, #00d4ff);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #ff00ff;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: white;
+    color: #ff00ff;
+}
+
+.post {
+    background: #2a2a2a;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 10px;
+    text-align: left;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.like-btn, .comment-btn, .share-btn {
+    cursor: pointer;
+    color: #bbb;
+    transition: 0.3s;
+}
+
+.like-btn:hover, .comment-btn:hover, .share-btn:hover {
+    color: #ff00ff;
+}

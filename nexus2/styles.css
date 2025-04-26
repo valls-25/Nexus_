@@ -1,0 +1,214 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background: #0a0a0a;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: linear-gradient(90deg, #6a00f4, #00d4ff);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    height: 50px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ff00ff;
+}
+
+.btn {
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.primary {
+    background: #ff00ff;
+    color: white;
+    box-shadow: 0 0 15px #ff00ff;
+}
+
+.primary:hover {
+    background: white;
+    color: #ff00ff;
+}
+
+.secondary {
+    border: 2px solid #ff00ff;
+    color: #ff00ff;
+}
+
+.secondary:hover {
+    background: #ff00ff;
+    color: white;
+}
+
+header {
+    padding: 100px 20px;
+    background: url('https://source.unsplash.com/1600x900/?startup,entrepreneur') no-repeat center;
+    background-size: cover;
+    text-align: center;
+}
+
+.hero {
+    max-width: 800px;
+    margin: auto;
+    padding: 50px 0;
+}
+
+.hero h1 {
+    font-size: 48px;
+    color: #ff00ff;
+}
+
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 50px 20px;
+    flex-wrap: wrap;
+}
+
+.feature-box {
+    width: 300px;
+    padding: 30px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #ff00ff, #00d4ff);
+    box-shadow: 0 10px 30px rgba(255, 0, 255, 0.5);
+    transition: 0.3s;
+}
+
+.feature-box:hover {
+    transform: translateY(-10px);
+}
+
+.testimonials {
+    padding: 50px 20px;
+    background: linear-gradient(90deg, #ff00ff, #00d4ff);
+}
+
+.cta-section {
+    padding: 80px 20px;
+    background: linear-gradient(90deg, #ff00ff, #00d4ff);
+    color: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.floating-btn {
+    background: white;
+    color: #ff00ff;
+    padding: 15px 30px;
+    box-shadow: 0 0 20px white;
+    transition: all 0.3s;
+    border-radius: 50px;
+}
+
+.floating-btn:hover {
+    background: #ff00ff;
+    color: white;
+}
+
+.why-nexus {
+    padding: 60px 20px;
+    background: #121212;
+    text-align: center;
+}
+
+.why-nexus h2 {
+    color: #ff00ff;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.why-nexus p {
+    font-size: 18px;
+    max-width: 800px;
+    margin: auto;
+    line-height: 1.6;
+}
+
+footer {
+    padding: 20px;
+    background: #111;
+    color: white;
+}
+
+footer a {
+    color: #ff00ff;
+    text-decoration: none;
+}
+
+.testimonials {
+    padding: 60px 20px;
+    background: linear-gradient(90deg, #932793, #3cb0c8);
+    color: white;
+    text-align: center;
+}
+
+.testimonials h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+.testimonial-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.testimonial {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(51, 5, 5, 0.3);
+    max-width: 300px;
+    text-align: center;
+}
+
+.testimonial p {
+    font-size: 16px;
+    font-style: italic;
+}
+
+.testimonial h4 {
+    margin-top: 15px;
+    font-size: 18px;
+    color: #ffdd57;
+}

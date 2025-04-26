@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startup Insights</title>
+    <link rel="stylesheet" href="insights.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Startup Insights</h1>
+
+        <!-- Networking Profiles -->
+        <h2>Networking Profiles</h2>
+        <div class="profiles" id="networkingProfiles"></div>
+
+        <!-- Startups Table -->
+        <h2>Startups to Invest In</h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Logo</th>
+                        <th>Name</th>
+                        <th>Industry</th>
+                        <th>Funding</th>
+                    </tr>
+                </thead>
+                <tbody id="startupsList"></tbody>
+            </table>
+        </div>
+
+        <!-- Funded Startups Table -->
+        <h2>Funded Startups</h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Funding</th>
+                    </tr>
+                </thead>
+                <tbody id="fundedStartups"></tbody>
+            </table>
+        </div>
+
+        <!-- Investors Table -->
+        <h2>Investors</h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Field</th>
+                        <th>Invested Amount</th>
+                    </tr>
+                </thead>
+                <tbody id="investors"></tbody>
+            </table>
+        </div>
+
+        <!-- Pitch Submission Form -->
+        <h2>Submit Your Pitch</h2>
+        <div class="pitch-form">
+            <select id="investorSelect"></select>
+            <input type="number" id="fundingAmount" placeholder="Enter Amount (₹)">
+            <button onclick="submitPitch()">Submit Pitch</button>
+        </div>
+    </div>
+
+    <script src="insights.js"></script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Chatbot</title>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(135deg, #ff00ff, #ff4500);
+    color: white;
+    overflow: hidden;
+  }
+  #chat-container {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(15px);
+    display: flex;
+    flex-direction: column;
+    border-radius: 0;
+    box-shadow: none;
+    overflow: hidden;
+    padding: 20px;
+  }
+  h1 {
+    text-align: center;
+    color: #ffdd57;
+    font-size: 30px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  }
+  #chat-history {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .user-message, .bot-message {
+    padding: 14px;
+    border-radius: 12px;
+    max-width: 80%;
+    font-size: 17px;
+  }
+  .user-message {
+    background: #1e90ff;
+    align-self: flex-end;
+    color: white;
+  }
+  .bot-message {
+    background: #000800;
+    align-self: flex-start;
+    color: white;
+  }
+  form {
+    display: flex;
+    padding: 20px;
+    border-top: 2px solid #ffdd57;
+    background: transparent;
+  }
+  input {
+    flex-grow: 1;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+    font-size: 17px;
+  }
+  input::placeholder {
+    color: #eee;
+  }
+  button {
+    background: linear-gradient(90deg, #ffdd57, #ff4500);
+    color: white;
+    border: none;
+    padding: 14px 18px;
+    border-radius: 12px;
+    margin-left: 12px;
+    cursor: pointer;
+    font-size: 17px;
+    box-shadow: 0 0 12px #ffdd57;
+    transition: 0.3s;
+  }
+  button:hover {
+    background: white;
+    color: #ff4500;
+  }
+  #loader {
+    display: none;
+    text-align: center;
+    padding: 12px;
+  }
+</style>
+</head>
+<body>
+  <div id="chat-container">
+    <h1>NEXUS</h1>
+    <div id="chat-history"></div>
+    <div id="loader">Typing...</div>
+    <form id="chat-form">
+      <input type="text" id="user-input" placeholder="Enter your message" required>
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
+  <script>
+    const chatHistory = document.getElementById('chat-history');
+    const userInput = document.getElementById('user-input');
+    const form = document.getElementById('chat-form');
+    const loader = document.getElementById('loader');
+
+    async function sendMessage() {
+      const userMessage = userInput.value;
+      userInput.value = ''; // Clear input field
+      chatHistory.innerHTML += `<div class="user-message">${userMessage}</div>`;
+      chatHistory.scrollTop = chatHistory.scrollHeight;
+      loader.style.display = 'block';
+      
+      try {
+        const response = await fetch('/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ userInput: userMessage }),
+        });
+        
+        const data = await response.json();
+        loader.style.display = 'none';
+        function formatResponse(response) {
+    return response
+        .replace(/## (.+)/g, '<h3 style="font-size: 20px; font-weight: bold; color: #ffdd57;">$1</h3>') // Headings
+        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>') // Bold text
+        .replace(/\n/g, '<br>'); // Line breaks
+}
+
+chatHistory.innerHTML += `<div class="bot-message">${formatResponse(data.response)}</div>`;
+
+        chatHistory.scrollTop = chatHistory.scrollHeight;
+      } catch (error) {
+        console.error('Error:', error);
+        loader.style.display = 'none';
+      }
+    }
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      sendMessage();
+    });
+  </script>
+</body>
+</html>
